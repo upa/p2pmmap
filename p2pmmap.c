@@ -55,13 +55,13 @@ static int p2pmmap_mem_fault(struct vm_fault *vmf)
 	unsigned long pagenum = vmf->pgoff;
 	unsigned long pa, pfn;
 
-	pr_info("%s: vma->vm_pgoff=%ld, vmf->pgoff=%ld\n",
+	pr_debug("%s: vma->vm_pgoff=%ld, vmf->pgoff=%ld\n",
 		__func__, vma->vm_pgoff, vmf->pgoff);
-	pr_info("%s: page number %ld\n", __func__, pagenum);
+	pr_debug("%s: page number %ld\n", __func__, pagenum);
 
 
 	pa = virt_to_phys(pmm.p2pmem + (pagenum << PAGE_SHIFT));
-	pr_info("%s: paddr of mapped p2pmem is %lx\n",
+	pr_debug("%s: paddr of mapped p2pmem is %lx\n",
 		__func__, pa);
 	if (pa == 0) {
 		pr_err("wrong pa\n");
